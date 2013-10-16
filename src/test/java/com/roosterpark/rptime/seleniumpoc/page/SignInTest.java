@@ -22,11 +22,12 @@ public class SignInTest {
     }
 
     @Test
-    public void signInTest() {
+    public void signInTest() throws InterruptedException {
         driver.get(GoogleHomePage.getAddress());
         homePage = new GoogleHomePage(driver);
         signInPage = homePage.clickSignInButton();
         signInPage.signIn("testuser@roosterpark.com", "testuser");
+        driver.get(GoogleDrivePage.getAddress());
         driver.quit();
     }
 
